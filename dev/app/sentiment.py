@@ -4,14 +4,14 @@ import torch
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
 # Load the model and tokenizer
-tokenizer = AutoTokenizer.from_pretrained("ikoghoemmanuell/finetuned_sentiment_modell")
-model = AutoModelForSequenceClassification.from_pretrained("ikoghoemmanuell/finetuned_sentiment_modell")
+model = AutoModelForSequenceClassification.from_pretrained("ikoghoemmanuell/finetuned_fake_news_bert")
+tokenizer = AutoTokenizer.from_pretrained("ikoghoemmanuell/finetuned_fake_news_bert")
 
-# Define the function for sentiment analysis
+# Define the function for detecting fake news
 @st.cache_resource
-def predict_sentiment(text):
+def detect_fake_news(text):
     # Load the pipeline.
-    pipeline = transformers.pipeline("sentiment-analysis")
+    pipeline = transformers.pipeline("text-classification")
 
     # Predict the sentiment.
     prediction = pipeline(text)
@@ -22,7 +22,7 @@ def predict_sentiment(text):
 
 # Setting the page configurations
 st.set_page_config(
-    page_title="Sentiment Analysis App",
+    page_title="Fake News Detection App",
     page_icon=":smile:",
     layout="wide",
     initial_sidebar_state="auto",
@@ -30,13 +30,12 @@ st.set_page_config(
 
 # Add description and title
 st.write("""
-# How Positive or Negative is your Text?
-Enter some text and we'll tell you if it has a positive, negative, or neutral sentiment!
+# Fake News Detection
+Enter some text and we'll tell you if it's likely to be fake news or not!
 """)
 
-
 # Add image
-image = st.image("https://i0.wp.com/thedatascientist.com/wp-content/uploads/2018/10/sentiment-analysis.png", width=400)
+image = st.image("https://docs.gato.txst.edu/78660/w/2000/a_1dzGZrL3bG/fake-fact.jpg", width=400)
 
 # Get user input
 text = st.text_input("Enter some text here:")
@@ -56,12 +55,10 @@ h1 {
 unsafe_allow_html=True
 )
 
-# Show sentiment output
+# Show fake news detection output
 if text:
-    sentiment, score = predict_sentiment(text)
-    if sentiment == "Positive":
-        st.success(f"The sentiment is {sentiment} with a score of {score*100:.2f}%!")
-    elif sentiment == "Negative":
-        st.error(f"The sentiment is {sentiment} with a score of {score*100:.2f}%!")
+    label, score = detect_fake_news(text)
+    if label == "Fake":
+        st.error(f"The text is likely to be fake news with a confidence score of {score*100:.2f}%!")
     else:
-        st.warning(f"The sentiment is {sentiment} with a score of {score*100:.2f}%!")
+        st.success(f"The text is likely to be genuine with a confidence score of {score*100:.2f}%!")
