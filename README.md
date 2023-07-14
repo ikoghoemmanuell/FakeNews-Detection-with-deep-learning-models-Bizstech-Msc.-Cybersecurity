@@ -6,9 +6,7 @@
 
 ## What is Fake News Detection?
 
-Fake news detection is a natural language processing technique used to identify and classify misleading or false information in news articles or social media content. The rise of fake news has led to an increased need for automated systems that can analyze and flag potentially deceptive content. In this article, we will explore how to fine-tune a pre-trained model for fake news detection using Hugging Face and share it on the Hugging Face model hub.
-
-All the code for this project is available here: [Github](https://github.com/yourusername/Fake-News-Detection/tree/main)
+Fake news detection is a natural language processing technique used to identify and classify misleading or false information in news articles or social media content. The rise of fake news has led to an increased need for automated systems that can analyze and flag potentially deceptive content. In this project, we I explored how to fine-tune a pre-trained model for fake news detection using Hugging Face and share it on the Hugging Face model hub.
 
 # 1.1 Why Hugging Face?
 
