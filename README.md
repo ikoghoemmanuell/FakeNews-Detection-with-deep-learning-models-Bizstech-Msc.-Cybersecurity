@@ -1,6 +1,6 @@
-# Fake News Detection with Deep Learning Models
+# Fake News Detection with Deep Learning Models [![Streamlit App](https://img.shields.io/badge/Streamlit-App-yellow)](https://huggingface.co/spaces/ikoghoemmanuell/Fake-News-Detection-App)
 
-![Fake-news-v2-5](https://github.com/ikoghoemmanuell/Bizstech-Msc.-Cybersecurity-/assets/102419217/ddc045d5-73ec-418b-a3e9-6b24b4fb5374)
+![Fake-news-v2-5](https://github.com/Gitjohhny/FakeNews-Detection-with-deep-learning-models/assets/110716071/3ad4934f-d3ec-4a35-b492-ff3d97d9f253)
 
 # 1.0 Introduction
 
@@ -37,6 +37,7 @@ Now that we have understood the importance of using a GPU, let’s dive into the
 !pip install --upgrade accelerate
 !pip install sentencepiece
 ```
+
 Next, we import the necessary libraries and load the dataset. In this project, we will be using the dataset from [source of fake news dataset]. You can download the dataset here.
 
 ```python
@@ -57,10 +58,13 @@ df = pd.read_csv('path/to/dataset.csv')
 
 # Preprocessing steps...
 ```
+
 # 2.1 Preprocessing
+
 Next, we clean and preprocess the text data. Preprocessing steps may include removing unnecessary characters, tokenization, and normalizing the text. These steps ensure that the data is in a suitable format for training the fake news detection model.
 
 # 2.2 Tokenization
+
 After preprocessing the text data, we need to tokenize it to create numerical representations. Tokenization breaks down the text into smaller units, such as words or subwords, and assigns numerical values to them. This allows the model to process and analyze the text effectively.
 
 ```python
@@ -70,7 +74,9 @@ tokenizer = AutoTokenizer.from_pretrained(checkpoint)
 
 # Tokenization steps...
 ```
+
 # 3.0 Training
+
 Now that we have our preprocessed and tokenized data, we can proceed with training the fake news detection model. We'll set the training parameters and initialize the model using the pre-trained checkpoint.
 
 ```python
@@ -89,15 +95,17 @@ model = AutoModelForSequenceClassification.from_pretrained(checkpoint, num_label
 
 # Training steps...
 ```
+
 # 4.0 Next Steps
+
 After training the model, the next steps would be to evaluate its performance, fine-tune further if necessary, and deploy the model for practical use. You can explore different deployment options such as building a web application using frameworks like Streamlit or Gradio. This would allow users to interact with the model and make predictions on new text inputs. For this project, I used streamlit.
 
-[![Streamlit App](https://img.shields.io/badge/Streamlit-App-yellow)](https://huggingface.co/spaces/ikoghoemmanuell/Sentiment-analysis-WebApp)
+[![Streamlit App](https://img.shields.io/badge/Streamlit-App-yellow)](https://huggingface.co/spaces/ikoghoemmanuell/Fake-News-Detection-App)
 
-screenshot picture
-
+![fakenewsappgif](https://github.com/Gitjohhny/FakeNews-Detection-with-deep-learning-models/assets/110716071/18f793bb-d507-4476-b4c8-374c7a7a2809)
 
 # 5.0 Conclusion
+
 In conclusion, we have fine-tuned a pre-trained model for fake news detection using Hugging Face. By following the steps outlined in this README, you can replicate the process and adapt it to your own fake news detection projects.
 
 # 5.1 Resources
