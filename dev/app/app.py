@@ -13,8 +13,8 @@ st.set_page_config(
     initial_sidebar_state="auto")
 
 # Load the model and tokenizer
-model_name = AutoModelForSequenceClassification.from_pretrained("ikoghoemmanuell/finetuned_fake_news_roberta")
-tokenizer_name = AutoTokenizer.from_pretrained("ikoghoemmanuell/finetuned_fake_news_roberta")
+model_name = AutoModelForSequenceClassification.from_pretrained("Johnson-Olakanmi/finetuned_fake_news_roberta")
+tokenizer_name = AutoTokenizer.from_pretrained("Johnson-Olakanmi/finetuned_fake_news_roberta")
 
 
 # Define the CSS style for the app
